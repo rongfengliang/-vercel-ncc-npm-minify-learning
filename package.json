@@ -1,0 +1,21 @@
+{
+  "name": "first",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "share":"ncc build shortid.js -m  -o dist/node_modules/myshortid",
+    "build": "ncc build app.js -m -e myshortid  -o dist",
+    "postinstall": "npm run share && npm run build"
+  },
+  "devDependencies": {
+    "@vercel/ncc": "^0.38.1"
+  },
+  "dependencies": {
+    "hashids": "^2.3.0",
+    "shortid": "^2.2.16"
+  },
+  "optionalDependencies": {
+    "myshortid":"file:./dist/myshortid"
+  }
+}
